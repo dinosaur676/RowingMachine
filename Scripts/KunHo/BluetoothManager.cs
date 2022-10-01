@@ -13,6 +13,10 @@ public class BluetoothManager : MonoBehaviour
 	string recv_msg;
 	string deviceName;
 
+	public bool TEST_MODE = false;
+	[Range(0.0f, 7.0f)]
+	public float TEST_SPEED;
+
 
 	void Start()
     {
@@ -23,12 +27,21 @@ public class BluetoothManager : MonoBehaviour
 
 		DontDestroyOnLoad(transform.gameObject);
 
-		StartCoroutine(Connect());
+		if(!TEST_MODE)
+			StartCoroutine(Connect());
+        else
+		{
+			StartCoroutine(TEST_NEXTSCENE());
+			StartCoroutine(TEST_SPEEDMANAGER());
+		}
 	}
 
 
 	void Update()
     {
+		if (TEST_MODE)
+			return;
+
         if (bluetoothHelper.isConnected())
         {
 			recv_msg = bluetoothHelper.Read();
@@ -71,5 +84,27 @@ public class BluetoothManager : MonoBehaviour
 		yield return null;
 	}
 
+	IEnumerator TEST_NEXTSCENE()
+    {
+		LoadingSceneController.LoadScene("Beginning Scene", true);
+
+
+		for (int i = 0; i < 1; ++i)
+		{
+			yield return new WaitForSeconds(3.0f);
+		}
+
+		LoadingSceneController.endWait();
+		yield return null;
+	}
+	IEnumerator TEST_SPEEDMANAGER()
+	{
+
+		while (true)
+		{
+			SpeedManager.Instance.GoalBoatSpeed = TEST_SPEED;
+			yield return new WaitForSeconds(0.5f);
+		}
+	}
 
 }
