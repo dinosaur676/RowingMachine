@@ -20,15 +20,16 @@ public class BluetoothManager : MonoBehaviour
 
 	void Start()
     {
-		deviceName = "kunBT";
-
-		bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
-		bluetoothHelper.setTerminatorBasedStream("\n");
-
-		DontDestroyOnLoad(transform.gameObject);
-
 		if(!TEST_MODE)
+        {
+			deviceName = "kunBT";
+
+			bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
+			bluetoothHelper.setTerminatorBasedStream("\n");
+
+			DontDestroyOnLoad(transform.gameObject);
 			StartCoroutine(Connect());
+		}
         else
 		{
 			StartCoroutine(TEST_NEXTSCENE());
