@@ -27,7 +27,6 @@ public class BluetoothManager : MonoBehaviour
 			bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
 			bluetoothHelper.setTerminatorBasedStream("\n");
 
-			DontDestroyOnLoad(transform.gameObject);
 			StartCoroutine(Connect());
 		}
         else
@@ -35,6 +34,8 @@ public class BluetoothManager : MonoBehaviour
 			StartCoroutine(TEST_NEXTSCENE());
 			StartCoroutine(TEST_SPEEDMANAGER());
 		}
+
+		DontDestroyOnLoad(transform.gameObject);
 	}
 
 
