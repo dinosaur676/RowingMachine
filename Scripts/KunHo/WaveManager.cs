@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public static WaveManager instance;
+    private static WaveManager instance;
 
     public float amplitude = 1f;
     public float speed = 0.5f;
     public float offset = 0f;
 
-    private void Awake()
+    static public WaveManager Instance
     {
-        if (instance == null)
+        get
         {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            Debug.Log("Instance already exists, destroying object!");
-            Destroy(this);
+            if (instance == null)
+            {
+                instance = GameObject.FindGameObjectWithTag("UtilManager").GetComponent<WaveManager>();
+            }
+
+            return instance;
         }
     }
 

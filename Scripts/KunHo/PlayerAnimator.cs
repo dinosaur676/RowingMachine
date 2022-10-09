@@ -10,7 +10,7 @@ public class PlayerAnimator : MonoBehaviour
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
-        playerAnimator.SetFloat("Move", 0.0f);
+        playerAnimator.SetBool("isMove", false);
     }
 
     // Update is called once per frame
@@ -22,10 +22,10 @@ public class PlayerAnimator : MonoBehaviour
     {
         // 물리 갱신 주기마다 움직임, 회전, 애니메이션 처리 실행
 
-        if (!SpeedManager.Instance.isStop)
-            playerAnimator.SetFloat("Move", 1.0f);
+        if (SpeedManager.Instance.isStop)
+            playerAnimator.SetBool("isMove", false);
         else
-            playerAnimator.SetFloat("Move", 0.0f);
+            playerAnimator.SetBool("isMove", true);
     }
 
 }

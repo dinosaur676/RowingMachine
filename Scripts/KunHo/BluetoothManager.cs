@@ -35,7 +35,6 @@ public class BluetoothManager : MonoBehaviour
 			StartCoroutine(TEST_SPEEDMANAGER());
 		}
 
-		DontDestroyOnLoad(transform.gameObject);
 	}
 
 

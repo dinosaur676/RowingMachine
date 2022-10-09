@@ -82,6 +82,7 @@ public class TimeAttackManager : MonoBehaviour
     {
         timer = new TimeUtil.Timer(5.0f);
 
+
         while(!timer.isEnd)
         {
             endTime.text = "남은시간 : " + (int)timer.Time + "초";
