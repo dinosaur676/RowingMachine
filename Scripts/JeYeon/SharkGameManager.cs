@@ -59,8 +59,6 @@ public class SharkGameManager : MonoBehaviour
 
     public void EndGame()
     {
-        player.GetComponent<PlayerController>().enabled = false;
-        player.GetComponent<PlayerInput>().enabled = false;
         player.GetComponentInChildren<CharacterManager>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
 

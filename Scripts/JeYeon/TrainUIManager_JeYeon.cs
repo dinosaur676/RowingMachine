@@ -26,11 +26,17 @@ public class TrainUIManager_JeYeon : MonoBehaviour
     private static TrainUIManager_JeYeon m_instance; // 싱글톤이 할당될 static 변수
 
 
+
     public GameObject player;
     public GameObject ExitUI;
     public GameObject SettingUI;
     public GameObject ModeUI;
     public GameObject KmSetUI;
+    /*
+    public GameObject ExitUI;
+    public GameObject SettingUI;
+    public GameObject ModeUI;
+    */
     public Toggle toggle;
     public GameObject modeButton;
     public GameObject SetButton;
@@ -116,12 +122,12 @@ public class TrainUIManager_JeYeon : MonoBehaviour
         {
             modeButton.SetActive(true);
             SetButton.SetActive(true);
-
         }
         else // 애니메이션을 꺼야함, 오브젝트도 꺼야함
         {
             modeButton.GetComponent<Animator>().SetTrigger("close");
             SetButton.GetComponent<Animator>().SetTrigger("close");
+
             /*
             modeButton.GetComponent<ButtonAnim>().SetDisable("slidClose");
             SetButton.GetComponent<ButtonAnim>().SetDisable("setslidClose");
@@ -209,4 +215,10 @@ public class TrainUIManager_JeYeon : MonoBehaviour
 
     }
     */
+
+    public void UpdateSpeedText(float speed)
+    {
+        speedText.text = "속도 : " + speed + " km/h";
+    }
+
 }

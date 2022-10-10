@@ -20,6 +20,7 @@ public class BluetoothManager : MonoBehaviour
 
     void Start()
     {
+
         if (!TEST_MODE)
         {
             deviceName = "kunBT";
@@ -37,6 +38,24 @@ public class BluetoothManager : MonoBehaviour
 
         DontDestroyOnLoad(transform.gameObject);
     }
+/*
+		if(!TEST_MODE)
+        {
+			deviceName = "kunBT";
+
+			bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
+			bluetoothHelper.setTerminatorBasedStream("\n");
+
+			StartCoroutine(Connect());
+		}
+        else
+		{
+			StartCoroutine(TEST_NEXTSCENE());
+			StartCoroutine(TEST_SPEEDMANAGER());
+		}
+
+	}
+*/
 
 
     void Update()
