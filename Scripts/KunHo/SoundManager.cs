@@ -2,12 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//추가한 부분
+[System.Serializable]
+public class Sound
+{
+    public string name;
+    public AudioClip clip;
+}
+//
 public class SoundManager : MonoBehaviour
 {
+  
     static private SoundManager instance = null;
 
     private AudioSource audioSource;
     private float soundEffectVolume;
+
 
     static public SoundManager Instance
     {

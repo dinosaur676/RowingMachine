@@ -31,8 +31,8 @@ namespace PathCreation.Examples
 
         void Start() 
         {
-            StartCoroutine(SharkStart(5.0f));
-            speed = 0.0f;
+            StartCoroutine(SharkStart(0.1f)); // original = 5
+            speed = 100f;
             if (pathCreator != null)
             {
                 pathCreator.pathUpdated += OnPathChanged;
