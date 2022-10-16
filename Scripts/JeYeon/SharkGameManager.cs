@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SharkGameManager : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class SharkGameManager : MonoBehaviour
     private GameObject player;
     private TimeUtil.StopWatch stopWatch;
     private SharkUI UI;
+    private Text distanceAndTimeText;
+    private float distance;  // 거리 km단위
 
 
     private void Awake()
@@ -40,16 +43,23 @@ public class SharkGameManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-
-        //stopWatch = new TimeUtil.StopWatch();
-        UI = FindObjectOfType<SharkUI>();
-        UI.startGameUI();
+        distanceAndTimeText = GameObject.Find("Distance&Time").transform.Find("Text").GetComponent<Text>();
+        stopWatch = new TimeUtil.StopWatch();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //UpdateUI(stopWatch.Time, (float)SpeedManager.Instance.BoatSpeed);
+        distance += (float)SpeedManager.Instance.BoatSpeed * Time.deltaTime / 3600;
+
+        if (((int)stopWatch.Time / 5) % 2 == 0)
+        {
+            distanceAndTimeText.text = "거리 : " + (distance).ToString("F3") + "km";
+        }
+        else
+        {
+            distanceAndTimeText.text = "시간 : " + (int)stopWatch.Time / 60 + "분 " + (int)stopWatch.Time % 60 + "초";
+        }
     }
 
     public void UpdateUI(float surviveTime, float speed)
@@ -61,7 +71,5 @@ public class SharkGameManager : MonoBehaviour
     {
         player.GetComponentInChildren<CharacterManager>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
-
-        UI.endGameUI();
     }
 }

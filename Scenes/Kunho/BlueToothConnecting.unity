@@ -264,10 +264,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   list:
-  - name: BeginningSceneBGM
-    clip: {fileID: 8300000, guid: 8ef6a2f71cc7290428df3b5232ded0a2, type: 3}
   - name: WaterImpact
     clip: {fileID: 8300000, guid: 4b93ec8cc482b17439ffcb2d0bc3cd9b, type: 3}
+  - name: BGM
+    clip: {fileID: 8300000, guid: 940f0244c5ae7a0498fbe59b474dc2f2, type: 3}
 --- !u!114 &18837864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 564203699}
   - component: {fileID: 564203700}
   - component: {fileID: 564203701}
+  - component: {fileID: 564203702}
   m_Layer: 0
   m_Name: UtilManager
   m_TagString: UtilManager
@@ -407,6 +408,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 527bb684c240dff4babcd95c407945d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &564203702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564203693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d8bc8c503ff72479c09a780e934b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1548799315

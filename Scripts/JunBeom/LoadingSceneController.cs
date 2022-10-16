@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class LoadingSceneController : MonoBehaviour
 {
-    static string nextScene;
-    static bool _isWait;
 
     [SerializeField]
     Image progressBar;
+
+    static string nextScene;
+    static bool _isWait;
 
     public static void LoadScene(string sceneName, bool isWait = false)
     {

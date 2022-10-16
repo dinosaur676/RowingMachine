@@ -22,15 +22,32 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public float SoundEffectVolume
+    {
+        get
+        {
+            return soundEffectVolume;
+        }
+    }
+    
+    public float BGMVolume
+    {
+        get
+        {
+            return audioSource.volume;
+        }
+    }
+
     IEnumerator endSoundEffect(GameObject gameObject)
     {
         AudioSource source = gameObject.GetComponent<AudioSource>();
-        while(source.isPlaying)
+        while(source != null && source.isPlaying)
         {
             yield return null;
         }
 
-        Destroy(source);
+        if(source != null)
+            Destroy(source);
 
     }
 

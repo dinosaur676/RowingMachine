@@ -10,8 +10,8 @@ namespace PathCreation.Examples
     public class SharkPathFollow : MonoBehaviour
     {
         private bool IsStart = false;
-        public GameObject water;
-        public PathCreator pathCreator;
+        private GameObject water;
+        private PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
 
         float speed;
@@ -32,6 +32,8 @@ namespace PathCreation.Examples
         void Start() 
         {
             StartCoroutine(SharkStart(5.0f));
+            water = GameObject.FindGameObjectWithTag("water");
+            pathCreator = water.GetComponent<PathCreator>();
             speed = 0.0f;
             if (pathCreator != null)
             {

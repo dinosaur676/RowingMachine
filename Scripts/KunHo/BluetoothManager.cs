@@ -17,9 +17,9 @@ public class BluetoothManager : MonoBehaviour
 	[Range(0.0f, 7.0f)]
 	public float TEST_SPEED;
 
-
 	void Start()
     {
+
 		if(!TEST_MODE)
         {
 			deviceName = "kunBT";
@@ -70,7 +70,7 @@ public class BluetoothManager : MonoBehaviour
 
     IEnumerator Connect()
     {
-		LoadingSceneController.LoadScene("Beginning Scene", true);
+		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
 
 
 		while (!bluetoothHelper.isConnected())
@@ -87,7 +87,7 @@ public class BluetoothManager : MonoBehaviour
 
 	IEnumerator TEST_NEXTSCENE()
     {
-		LoadingSceneController.LoadScene("Beginning Scene", true);
+		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
 
 
 		for (int i = 0; i < 1; ++i)

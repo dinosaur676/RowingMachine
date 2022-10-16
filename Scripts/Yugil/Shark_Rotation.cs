@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Shark_Rotation : MonoBehaviour
 {
     private NavMeshAgent m_agent;
-    [SerializeField] float turnSpeed = 50f;
 
     // Start is called before the first frame update
     private void Start()

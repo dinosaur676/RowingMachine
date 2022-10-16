@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
 {
 
     public bool isLookForward;
-    public GameObject player;
+    private GameObject player;
     
     [SerializeField]
     private float distance = 15.0f;
@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
     }
 
     private void Update()

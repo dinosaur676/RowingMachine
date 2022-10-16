@@ -22,6 +22,7 @@ public class SoundSlider : MonoBehaviour
         
         if(sliderType == SliderType.SOUND_EFFECT)
         {
+            slider.value = SoundManager.Instance.SoundEffectVolume;
             slider.onValueChanged.AddListener(
                 delegate{
                     SoundManager.Instance.setSoundEffectVolume(slider.value);
@@ -29,6 +30,7 @@ public class SoundSlider : MonoBehaviour
         }
         else if(sliderType == SliderType.BGM)
         {
+            slider.value = SoundManager.Instance.BGMVolume;
             slider.onValueChanged.AddListener(
                 delegate {
                     SoundManager.Instance.setBackGroundMusicVolume(slider.value);

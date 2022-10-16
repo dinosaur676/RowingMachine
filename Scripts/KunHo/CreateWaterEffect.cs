@@ -21,7 +21,7 @@ public class CreateWaterEffect : MonoBehaviour
     IEnumerator startEffect(GameObject transformObject)
     {
         ParticleSystem particle = Instantiate(waterEffect, transformObject.transform.position, Quaternion.identity);
-        SoundManager.Instance.CreateSoundEffect(particle.gameObject, BGMList.Instance.getAudioClip("WaterImpact"));
+        SoundManager.Instance.CreateSoundEffect(particle.gameObject, BGMList.Instance.getAudioClip(NameUtil.SOUND_WATER_IMPACT));
 
         AudioSource audioSource = particle.gameObject.GetComponent<AudioSource>();
 
