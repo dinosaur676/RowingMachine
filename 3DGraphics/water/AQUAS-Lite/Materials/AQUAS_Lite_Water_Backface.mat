@@ -2,13 +2,18 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: AQUAS_Lite_Water_Backface
-  m_Shader: {fileID: 4800000, guid: 6c5f1c7411ec6004fb354db7ff23d494, type: 3}
-  m_ShaderKeywords: _ENABLEPROBERELFECTIONS_ON _ENABLEREALTIMEREFLECTIONS_ON _ENABLEREFLECTIONS_ON
+  m_Shader: {fileID: 4800000, guid: 104cb0e3a7464a3696069ea84b145eee, type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ENABLEPROBERELFECTIONS_ON
+  - _ENABLEREALTIMEREFLECTIONS_ON
+  - _ENABLEREFLECTIONS_ON
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -18,6 +23,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTex1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlbedoTex2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -50,6 +63,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MirrorReflectionTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _NormalTexture:
         m_Texture: {fileID: 2800000, guid: 0d05b23ea2d999b47825c6c522e25adc, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -62,11 +87,20 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ReflectionCube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ReflectionTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
+    - _Albedo2Flow: 1
+    - _Albedo2Tiling: 1
+    - _AlbedoContrast: 1
+    - _AlbedoIntensity: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _Density: 0.24
@@ -81,9 +115,15 @@ Material:
     - _EnableReflections: 1
     - _Fade: 2
     - _FarTilingDistance: 1000
+    - _FoamAmplitude: 15
     - _FoamBlend: 0.2
     - _FoamContrast: 0.276
+    - _FoamFlow: 10
+    - _FoamFrequency: 4
+    - _FoamGain: 0.6
     - _FoamIntensity: 1.92
+    - _FoamLacunarity: 5
+    - _FoamScale: 0.1
     - _FoamSpeed: 0.1
     - _FoamTiling: 1
     - _FoamVisibility: 1
@@ -96,19 +136,46 @@ Material:
     - _LightWrapping: 2
     - _MediumTilingDistance: 100
     - _Metallic: 0
+    - _MicrowaveScale: 1
+    - _MicrowaveStrength: 0.5
+    - _MirrorContrast: 1
+    - _MirrorFPOW: 5
+    - _MirrorR0: 0.01
+    - _MirrorSaturation: 1
+    - _MirrorStrength: 1
+    - _MirrorWaveFlow: 5
+    - _MirrorWavePow: 1
+    - _MirrorWaveScale: 1
     - _Mode: 0
+    - _NormalMap1Strength: 1
+    - _NormalMap2Flow: 0.5
+    - _NormalMap2Strength: 1
+    - _NormalMap2Tiling: 0.7
     - _NormalStrength: 1
     - _NormalTiling: 0.25
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ParallaxAmount: 0.1
+    - _ParallaxFlow: 40
+    - _ParallaxNoiseAmplitude: 3
+    - _ParallaxNoiseFrequency: 1
+    - _ParallaxNoiseGain: 0.3
+    - _ParallaxNoiseLacunarity: 4
+    - _ParallaxNoiseScale: 1
+    - _ParallaxNormal2Offset: 1
     - _ProbeReflectionIntensity: 0.578
     - _RealtimeReflectionIntensity: 1
+    - _ReflectionContrast: 1
     - _ReflectionIntensity: 0.385
+    - _ReflectionSaturation: 1
+    - _ReflectionStrength: 0.15
     - _Refraction: 0.4
     - _RefractionDistance: 10
     - _RefractionFalloff: 1
+    - _Shininess: 0.15
     - _ShoreFade: 0.56
     - _ShoreTransparency: 0.5
+    - _SoftFactor: 0.5
     - _Specular: 1
     - _SrcBlend: 1
     - _TransparencyFade: 1
@@ -120,10 +187,17 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
+    - _AlbedoColor: {r: 0.15, g: 0.161, b: 0.16, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepWaterColor: {r: 0.06763973, g: 0.11615724, b: 0.1509434, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FoamSoft: {r: 0.25, g: 0.6, b: 1, a: 0}
     - _FogColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainColor: {r: 0.4745098, g: 1, b: 0.80784315, a: 1}
+    - _MirrorColor: {r: 1, g: 1, b: 1, a: 0.5}
+    - _MirrorDepthColor: {r: 0, g: 0, b: 0, a: 0.5}
+    - _ReflectionColor: {r: 0.28, g: 0.29, b: 0.25, a: 0.5}
+    - _SpecColor: {r: 0.086, g: 0.086, b: 0.086, a: 1}
     - _SpecularColor: {r: 0.9716981, g: 0.9139198, b: 0.7104397, a: 1}
+  m_BuildTextureStacks: []

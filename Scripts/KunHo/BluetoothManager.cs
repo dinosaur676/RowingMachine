@@ -9,103 +9,112 @@ using UnityEngine.SceneManagement;
 
 public class BluetoothManager : MonoBehaviour
 {
-	BluetoothHelper bluetoothHelper;
-	string recv_msg;
-	string deviceName;
+    BluetoothHelper bluetoothHelper;
+    string recv_msg;
+    string deviceName;
 
-	public bool TEST_MODE = false;
-	[Range(0.0f, 7.0f)]
-	public float TEST_SPEED;
+    public bool TEST_MODE = false;
+    [Range(0.0f, 7.0f)]
+    public float TEST_SPEED;
 
-	void Start()
+
+    void Start()
     {
-
-		if(!TEST_MODE)
+        if (!TEST_MODE)
         {
-			deviceName = "kunBT";
+            deviceName = "kunBT";
 
-			bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
-			bluetoothHelper.setTerminatorBasedStream("\n");
+            bluetoothHelper = BluetoothHelper.GetInstance(deviceName);
+            bluetoothHelper.setTerminatorBasedStream("\n");
 
-			StartCoroutine(Connect());
-		}
+            StartCoroutine(Connect());
+        }
         else
-		{
-			StartCoroutine(TEST_NEXTSCENE());
-			StartCoroutine(TEST_SPEEDMANAGER());
-		}
+        {
+            StartCoroutine(TEST_NEXTSCENE());
+            StartCoroutine(TEST_SPEEDMANAGER());
+        }
 
-	}
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
 
-	void Update()
+    void Update()
     {
-		if (TEST_MODE)
-			return;
+        if (TEST_MODE)
+            return;
 
         if (bluetoothHelper.isConnected())
         {
-			recv_msg = bluetoothHelper.Read();
+            recv_msg = bluetoothHelper.Read();
 
             if (!recv_msg.Equals(""))
             {
                 SpeedManager.Instance.GoalBoatSpeed = Double.Parse(recv_msg);
             }
         }
-	}
-	void tryConnect()
-	{
-		try
-		{
-			if (bluetoothHelper.isDevicePaired())
-			{
-				bluetoothHelper.Connect();
-			}
-		}
-		catch (Exception e)
-		{
-			Debug.Log(e);
-		}
-	}
+    }
+    void tryConnect()
+    {
+        try
+        {
+            if (bluetoothHelper.isDevicePaired())
+            {
+                bluetoothHelper.Connect();
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
 
     IEnumerator Connect()
     {
+<<<<<<< HEAD
 		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
+=======
+        LoadingSceneController.LoadScene("Beginning Scene", true);
+>>>>>>> 98bf778eadedf65a76ef8d88f487bae835d43f4f
 
 
-		while (!bluetoothHelper.isConnected())
+        while (!bluetoothHelper.isConnected())
         {
-			tryConnect();
-			yield return new WaitForSeconds(3.0f);
-		}
+            tryConnect();
+            yield return new WaitForSeconds(3.0f);
+        }
 
-		bluetoothHelper.StartListening();
-		Debug.Log("Connected");
-		LoadingSceneController.endWait();
-		yield return null;
-	}
+        bluetoothHelper.StartListening();
+        Debug.Log("Connected");
+        LoadingSceneController.endWait();
+        yield return null;
+    }
 
-	IEnumerator TEST_NEXTSCENE()
+    IEnumerator TEST_NEXTSCENE()
     {
+<<<<<<< HEAD
 		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
+=======
+        LoadingSceneController.LoadScene("Beginning Scene", true);
+>>>>>>> 98bf778eadedf65a76ef8d88f487bae835d43f4f
 
 
-		for (int i = 0; i < 1; ++i)
-		{
-			yield return new WaitForSeconds(3.0f);
-		}
+        for (int i = 0; i < 1; ++i)
+        {
+            yield return new WaitForSeconds(3.0f);
+        }
 
-		LoadingSceneController.endWait();
-		yield return null;
-	}
-	IEnumerator TEST_SPEEDMANAGER()
-	{
+        LoadingSceneController.endWait();
+        yield return null;
+    }
+    IEnumerator TEST_SPEEDMANAGER()
+    {
 
-		while (true)
-		{
-			SpeedManager.Instance.GoalBoatSpeed = TEST_SPEED;
-			yield return new WaitForSeconds(0.5f);
-		}
-	}
+        while (true)
+        {
+            SpeedManager.Instance.GoalBoatSpeed = TEST_SPEED;
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
 
 }

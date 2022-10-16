@@ -72,4 +72,5 @@ public class SharkGameManager : MonoBehaviour
         player.GetComponentInChildren<CharacterManager>().enabled = false;
         player.GetComponent<Animator>().enabled = false;
     }
+
 }
