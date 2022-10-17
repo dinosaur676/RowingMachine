@@ -71,11 +71,7 @@ public class BluetoothManager : MonoBehaviour
 
     IEnumerator Connect()
     {
-<<<<<<< HEAD
 		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
-=======
-        LoadingSceneController.LoadScene("Beginning Scene", true);
->>>>>>> 98bf778eadedf65a76ef8d88f487bae835d43f4f
 
 
         while (!bluetoothHelper.isConnected())
@@ -92,12 +88,7 @@ public class BluetoothManager : MonoBehaviour
 
     IEnumerator TEST_NEXTSCENE()
     {
-<<<<<<< HEAD
 		LoadingSceneController.LoadScene(NameUtil.SCENE_TRAINING, true);
-=======
-        LoadingSceneController.LoadScene("Beginning Scene", true);
->>>>>>> 98bf778eadedf65a76ef8d88f487bae835d43f4f
-
 
         for (int i = 0; i < 1; ++i)
         {
