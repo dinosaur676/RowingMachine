@@ -14,7 +14,7 @@ namespace PathCreation.Examples
         private PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
 
-        float speed;
+        public float speed;
         float distanceTravelled;
 
         IEnumerator SharkStart(float time){

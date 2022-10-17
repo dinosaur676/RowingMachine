@@ -9,6 +9,9 @@ public class FeverDialog : MonoBehaviour
     Image timeProgressbar;
     Image distanceProgressBar;
 
+    Image progressImage;
+    Image playerIcon;
+
     float speed;
     float distance;
     float currentDistance;
@@ -19,7 +22,6 @@ public class FeverDialog : MonoBehaviour
     {
         timeProgressbar = transform.Find("TimeProgressBar").GetComponent<Image>();
         distanceProgressBar = transform.Find("DistanceProgressBar").GetComponent<Image>();
-
 
         timeSec = 5.0f; //Random.Range(300.0f, 480.0f);
         speed = Random.Range(3.0f, 6.0f);
@@ -34,12 +36,12 @@ public class FeverDialog : MonoBehaviour
         timeProgressbar.fillAmount = timer.Time / timeSec;
         distanceProgressBar.fillAmount = currentDistance / distance;
 
+
         currentDistance += (float)SpeedManager.Instance.BoatSpeed * Time.deltaTime / 3600;
 
         if (timer.isEnd || currentDistance >= distance)
         {
             Destroy(transform.parent.gameObject);
         }
-        
     }
 }
