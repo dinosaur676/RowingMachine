@@ -8,7 +8,7 @@ public class BeginningButtonListener : MonoBehaviour
     public GameObject Optionpanel;
     public void OnClickStart_btn()
     {
-        LoadingSceneController.LoadScene("Training");
+        LoadingSceneController.LoadScene("Survive");
     }
     public void OnClickSetting()
     {

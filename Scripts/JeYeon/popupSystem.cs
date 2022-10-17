@@ -82,7 +82,6 @@ public class popupSystem : MonoBehaviour
         _toggleOffCallBack?.Invoke();
     }
 
-
     private void Update()
     {
         //Debug.Log("ÆË¾÷Ã¢ ½Ã°£: " + anim.GetCurrentAnimatorStateInfo(0).normalizedTime);

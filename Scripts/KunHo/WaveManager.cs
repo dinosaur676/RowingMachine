@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class WaveManager : MonoBehaviour
+{
+    private static WaveManager instance;
+
+    public float amplitude = 1f;
+    public float speed = 0.5f;
+    public float offset = 0f;
+
+    static public WaveManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = GameObject.FindGameObjectWithTag("UtilManager").GetComponent<WaveManager>();
+            }
+
+            return instance;
+        }
+    }
+
+    private void LateUpdate()
+    {
+        offset += Time.deltaTime * speed;
+    }
+
+    public float GetWaveHeight(float _x, float length = 1f)
+    {
+        return amplitude * Mathf.Sin(_x / length + offset);
+    }
+}

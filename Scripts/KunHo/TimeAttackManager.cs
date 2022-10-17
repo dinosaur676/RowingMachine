@@ -21,15 +21,11 @@ public class TimeAttackManager : MonoBehaviour
             return m_instance;
         }
     }
-
     private static TimeAttackManager m_instance; // 싱글톤이 할당될 static 변수
 
-    // 게임정보 표시 UI
-    public Text timeText, distanceText, speedText, endTime;
-    public GameObject _info_ui, _kmSet, _end;
-    public InputField KMField, TimeField;
 
-    
+    private Text distanceAndTimeText;
+    private float time;
     private float distance;  // 거리 km단위
     public bool gamestate{ get; private set; }
 
@@ -47,70 +43,36 @@ public class TimeAttackManager : MonoBehaviour
 
     void Start()
     {
+        time = 60.0f;
         distance = 0.0f;
         gamestate = true;
-        changeUI(km: true);
+        timer = new TimeUtil.Timer(time);
+
+        // Update is called once per frame
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
-    }
-    
-    public void onClickButton()
-    {
-        timer = new TimeUtil.Timer(float.Parse(TimeField.text));
-        changeUI(info: true);
-        StartCoroutine(update());
+       
     }
 
     private void endGame()
     {
-        changeUI(end : true);
         StartCoroutine(endGameNextScene());
     }
 
-    private void changeUI(bool km = false, bool info = false, bool end = false)
-    {
-        _kmSet.SetActive(km);
-        _info_ui.SetActive(info);
-        _end.SetActive(end);
-    }
 
     IEnumerator endGameNextScene()
     {
         timer = new TimeUtil.Timer(5.0f);
 
+
         while(!timer.isEnd)
         {
-            endTime.text = "남은시간 : " + (int)timer.Time + "초";
             yield return null;
         }
 
         LoadingSceneController.LoadScene("Training");
-    }
-    IEnumerator update()
-    {
-        while(!_end.activeSelf)
-        {
-            // 거리 계산
-            distance += (float)SpeedManager.Instance.BoatSpeed * Time.deltaTime / 3600 ;
-            distanceText.text = "거리 : " + (distance).ToString("F3") + "km";
-
-            //속도 표시
-            speedText.text = "속도: " + SpeedManager.Instance.BoatSpeed.ToString("F2") + "km/h";
-
-
-            // 시간을 UI에 표시
-            timeText.text = "시간 : " + (int)timer.Time / 60 + "분 " + (int)timer.Time % 60 + "초";
-
-            if (timer.isEnd || distance >= float.Parse(KMField.text))
-            {
-                endGame();
-            }
-
-            yield return null;
-        }
     }
 }
