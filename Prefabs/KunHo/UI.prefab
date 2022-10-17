@@ -198,7 +198,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5078904263282796706}
+      - m_Target: {fileID: 1884327223569771452}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnNo
         m_Mode: 1
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5078904263835193722}
+      - m_Target: {fileID: 867072945357219509}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnYes
         m_Mode: 1
@@ -785,7 +785,7 @@ GameObject:
   - component: {fileID: 5078904263114130954}
   - component: {fileID: 5078904263114130955}
   - component: {fileID: 5078904263114130956}
-  - component: {fileID: 5078904263114130957}
+  - component: {fileID: 9126100287327636918}
   m_Layer: 5
   m_Name: SettingUI
   m_TagString: Untagged
@@ -877,7 +877,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5078904263114130957
+--- !u!114 &9126100287327636918
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -886,7 +886,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5078904263114130959}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5248f3b4daff83847a4437295677ce5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 80f573dc00b294c4ea2c5f64578a80fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5078904263119103577
@@ -1363,8 +1363,8 @@ GameObject:
   - component: {fileID: 5078904263282796707}
   - component: {fileID: 5078904263282796735}
   - component: {fileID: 5078904263282796704}
-  - component: {fileID: 5078904263282796706}
   - component: {fileID: 5078904263282796705}
+  - component: {fileID: 1884327223569771452}
   m_Layer: 5
   m_Name: ModeChangeUI
   m_TagString: Untagged
@@ -1434,18 +1434,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5078904263282796706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5078904263282796708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5248f3b4daff83847a4437295677ce5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &5078904263282796705
 Animator:
   serializedVersion: 4
@@ -1466,6 +1454,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1884327223569771452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078904263282796708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f573dc00b294c4ea2c5f64578a80fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5078904263320665665
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,6 @@ GameObject:
   - component: {fileID: 5078904263324743419}
   - component: {fileID: 5078904263324743420}
   - component: {fileID: 5078904263324743421}
-  - component: {fileID: 5078904263324743422}
   - component: {fileID: 5078904263324743423}
   m_Layer: 7
   m_Name: ModeChangeButton
@@ -1699,18 +1698,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5078904263324743422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5078904263324743393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a51cb606bf55fe40a596657b89c1b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5078904263324743423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,7 +2064,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5078904263835193722}
+      - m_Target: {fileID: 867072945357219509}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnNo
         m_Mode: 1
@@ -2392,7 +2379,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5078904263114130957}
+      - m_Target: {fileID: 9126100287327636918}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnNo
         m_Mode: 1
@@ -2573,7 +2560,6 @@ GameObject:
   - component: {fileID: 5078904263575937178}
   - component: {fileID: 5078904263575937179}
   - component: {fileID: 5078904263575937180}
-  - component: {fileID: 5078904263575937181}
   - component: {fileID: 5078904263575937182}
   m_Layer: 6
   m_Name: SettingButton
@@ -2717,18 +2703,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5078904263575937181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5078904263575937152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a51cb606bf55fe40a596657b89c1b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5078904263575937182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3292,7 +3266,7 @@ GameObject:
   - component: {fileID: 5078904263835193719}
   - component: {fileID: 5078904263835193720}
   - component: {fileID: 5078904263835193721}
-  - component: {fileID: 5078904263835193722}
+  - component: {fileID: 867072945357219509}
   m_Layer: 5
   m_Name: ExitUI
   m_TagString: Untagged
@@ -3381,7 +3355,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5078904263835193722
+--- !u!114 &867072945357219509
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3390,7 +3364,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5078904263835193724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5248f3b4daff83847a4437295677ce5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 80f573dc00b294c4ea2c5f64578a80fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5078904263953308079
