@@ -2958,6 +2958,7 @@ GameObject:
   - component: {fileID: 5078904263641496113}
   - component: {fileID: 5078904263641496143}
   - component: {fileID: 5078904263641496112}
+  - component: {fileID: 9107052223088444450}
   m_Layer: 5
   m_Name: Distance&Time
   m_TagString: Untagged
@@ -3024,6 +3025,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9107052223088444450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5078904263641496114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0758483f12b773e44bb2f44fbcbf3076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5078904263709637856
 GameObject:
   m_ObjectHideFlags: 0
