@@ -11,34 +11,41 @@ using UnityEngine.Networking;
 
 public class DBManager : MonoBehaviour
 {
-    public Text debugText;
+    static private DBManager instance = null;
+
+    static public DBManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = GameObject.Find("UtilManager").GetComponent<DBManager>();
+
+            return instance;
+        }
+    }
+
 
     private string conn, sqlQuery;
     IDbConnection dbConn;
     IDbCommand dbCmd;
     private IDataReader reader;
-    string DBName = "Test.db";
+    string DBName = "Rowing.db";
 
-    bool test = false;
+
+    private void Awake()
+    {
+        StartCoroutine(DBCreate());
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DBCreate());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!test)
-        {
-            DBConnectionCheck();
-            DBQuery("create table test (" +
-                "id int notnull" +
-                ");");
-
-            test = true;
-        }
+        
     }
     IEnumerator DBCreate()
     {
@@ -46,10 +53,8 @@ public class DBManager : MonoBehaviour
         if(Application.platform == RuntimePlatform.Android)
         {
             filepath = Application.persistentDataPath + "/" + DBName;
-            debugText.text += filepath + '\n';
             if (!File.Exists(filepath))
             {
-                debugText.text += "파일생성 들어옴" + '\n';
                 UnityWebRequest unityWebRequest = UnityWebRequest.Get("jar:file://" + Application.dataPath 
                     + "!/assets/" + DBName);
 
@@ -57,8 +62,8 @@ public class DBManager : MonoBehaviour
                 yield return unityWebRequest.SendWebRequest().isDone;
 
                 File.WriteAllBytes(filepath, unityWebRequest.downloadHandler.data);
-                debugText.text += "성공?" + '\n';
             }
+            Debug.Log(filepath);
         }
         else //기타 플랫폼 (pc일 경우)
         {
@@ -68,6 +73,8 @@ public class DBManager : MonoBehaviour
                 File.Copy(Application.streamingAssetsPath + "/" + DBName, filepath);
             }
         }
+
+        DBConnectionCheck();
     }
 
     public string GetDBFilePath()
@@ -94,11 +101,11 @@ public class DBManager : MonoBehaviour
 
             if (dbConnection.State == ConnectionState.Open)
             {
-                debugText.text += "연결 성공" + '\n';
+
             }
             else
             {
-                debugText.text += "연결 실패" + '\n';
+
             }
         }
         catch (Exception e)
@@ -107,6 +114,37 @@ public class DBManager : MonoBehaviour
         }
 
     }
+
+    public List<CalorieDTO> getCalories()
+    {
+        List<CalorieDTO> output = new List<CalorieDTO>();
+        string sql = "Select * from Calorie";
+        IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());
+        dbConnection.Open();
+        IDbCommand dbCommand = dbConnection.CreateCommand();
+        dbCommand.CommandText = sql;
+        IDataReader dataReader = dbCommand.ExecuteReader();
+
+        while(dataReader.Read())
+        {
+            CalorieDTO dto = new CalorieDTO();
+            dto.Date = System.DateTime.ParseExact(dataReader.GetString(0), "yyyy/MM/dd - HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
+            dto.Calorie = dataReader.GetInt32(1);
+            dto.Time = dataReader.GetInt32(2);
+
+            output.Add(dto);
+        }
+
+
+        dbCommand.Dispose();
+        dbCommand = null;
+        dbConnection.Close();
+        dbConnection = null;
+
+        return output;
+    }
+
+    
     private void DBQuery(string query)
     {
         IDbConnection dbConnection = new SqliteConnection(GetDBFilePath());

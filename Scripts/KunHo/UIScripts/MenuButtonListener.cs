@@ -31,13 +31,13 @@ public class MenuButtonListener : MonoBehaviour
     {
         if (toggle.isOn)
         {
-            modeChangeButton.SetActive(true);
-            SettingButton.SetActive(true);
+            modeChangeButton.GetComponent<ButtonSlideAnimation>().Open(1);
+            SettingButton.GetComponent<ButtonSlideAnimation>().Open(2);
         }
         else // 애니메이션을 꺼야함, 오브젝트도 꺼야함
         {
-            modeChangeButton.GetComponent<Animator>().SetTrigger("close");
-            SettingButton.GetComponent<Animator>().SetTrigger("close");
+            modeChangeButton.GetComponent<ButtonSlideAnimation>().Close();
+            SettingButton.GetComponent<ButtonSlideAnimation>().Close();
         }
 
     }
