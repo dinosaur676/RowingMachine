@@ -15,6 +15,7 @@ public class MesureManager : MonoBehaviour
     }
 
     float distance;
+    
     TimeUtil.StopWatch timer;
 
     private void Awake()

@@ -23,14 +23,6 @@ public class TimeAttackManager : MonoBehaviour
     }
     private static TimeAttackManager m_instance; // 싱글톤이 할당될 static 변수
 
-
-    private Text distanceAndTimeText;
-    private float time;
-    private float distance;  // 거리 km단위
-    public bool gamestate{ get; private set; }
-
-    private TimeUtil.Timer timer;
-
     private void Awake()
     {
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
@@ -41,38 +33,23 @@ public class TimeAttackManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        time = 60.0f;
-        distance = 0.0f;
-        gamestate = true;
-        timer = new TimeUtil.Timer(time);
-
-        // Update is called once per frame
-    }
 
 
     void Update()
     {
-       
+        if (EnemyController.instance.Distance >= 2 || 
+             MesureManager.Instance.Distance >= 2 )
+        {
+            endGame();
+        }
+
     }
 
     private void endGame()
     {
-        StartCoroutine(endGameNextScene());
+        LoadingSceneController.LoadScene("ModeSelection");
+        
     }
-
-
-    IEnumerator endGameNextScene()
-    {
-        timer = new TimeUtil.Timer(5.0f);
-
-
-        while(!timer.isEnd)
-        {
-            yield return null;
-        }
-
-        LoadingSceneController.LoadScene("Training");
-    }
+    
+    
 }

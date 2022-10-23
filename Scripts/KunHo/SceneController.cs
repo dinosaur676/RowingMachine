@@ -39,7 +39,7 @@ public class SceneController : MonoBehaviour
 
     public bool isRootScene()
     {
-        return SceneManager.GetActiveScene().name.Equals(NameUtil.SCENE_TRAINING);
+        return SceneManager.GetActiveScene().name.Equals(NameUtil.SCENE_MODESELECTION);
     }
 
 }

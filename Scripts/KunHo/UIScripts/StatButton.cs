@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class StatButton : MonoBehaviour
 {
+    [SerializeField]
     GameObject statObject;
     // Start is called before the first frame update
     void Start()
     {
-        statObject = GameObject.Find("StatUI");
         GetComponent<Button>().onClick.AddListener(() =>
         {
             Destroy(statObject);

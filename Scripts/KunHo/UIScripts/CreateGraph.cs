@@ -34,7 +34,6 @@ public class CreateGraph : MonoBehaviour
     }
     void Start()
     {
-        onRadio();
         
     }
 
@@ -70,7 +69,6 @@ public class CreateGraph : MonoBehaviour
 
         if (calorie.isOn)
         {
-           
             List<CalorieDTO> calorieDTOs = DBManager.Instance.getCalories();
 
             for (int i = 0; i < calorieDTOs.Count; ++i)
