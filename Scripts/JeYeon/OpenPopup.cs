@@ -5,11 +5,20 @@ using UnityEngine.UI;
 
 public class OpenPopup : MonoBehaviour
 {
+    public enum CloseType
+    {
+        windowClose,
+        ApplicationClose
+    };
+
     private Vector3 originScale;
     private float time = 0.3f;
 
     public GameObject yesbutton;
     public GameObject nobutton;
+
+    [SerializeField]
+    CloseType type;
 
     private void Start()
     {
@@ -19,7 +28,14 @@ public class OpenPopup : MonoBehaviour
     {
         
         if (yesbutton != null)
+        {
             yesbutton.GetComponent<Button>().onClick.AddListener(closePopup);
+            if(type == CloseType.ApplicationClose)
+                yesbutton.GetComponent<Button>().onClick.AddListener(() =>
+                {
+                    Application.Quit();
+                });
+        }
         if (nobutton != null)
             nobutton.GetComponent<Button>().onClick.AddListener(closePopup);
 
@@ -60,8 +76,5 @@ public class OpenPopup : MonoBehaviour
         }
 
         Destroy(gameObject);
-
-
-        Application.Quit();
     }
 }

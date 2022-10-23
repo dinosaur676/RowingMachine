@@ -325,6 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yesbutton: {fileID: 0}
   nobutton: {fileID: 1081276785438855450}
+  type: 1
 --- !u!1 &1081276784735862308
 GameObject:
   m_ObjectHideFlags: 0

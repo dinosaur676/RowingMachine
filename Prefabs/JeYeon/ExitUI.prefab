@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81befec47fbc829478c7de6702dc07ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickbutton: {fileID: 0}
   yesbutton: {fileID: 8202981265183546594}
   nobutton: {fileID: 8202981264938899171}
+  type: 1
 --- !u!1 &8202981264610668388
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,8 +373,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8293674546197812045, guid: 838c399861f7dd640b8f19823a4a1868,
-          type: 3}
+      - m_Target: {fileID: 8293674546197812045, guid: 838c399861f7dd640b8f19823a4a1868, type: 3}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnNo
         m_Mode: 1
@@ -508,8 +507,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8293674546197812045, guid: 838c399861f7dd640b8f19823a4a1868,
-          type: 3}
+      - m_Target: {fileID: 8293674546197812045, guid: 838c399861f7dd640b8f19823a4a1868, type: 3}
         m_TargetAssemblyTypeName: popupSystem, Assembly-CSharp
         m_MethodName: OnYes
         m_Mode: 1
