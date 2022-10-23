@@ -12,10 +12,9 @@ public class Progress : MonoBehaviour
     public Image GoalIcon;
     public Text percentText;
 
-    
-
     //프로그래스 값
     float pbValue;
+
     void Start()
     {
         GoalIcon.rectTransform.localPosition = new Vector3(progressImage.rectTransform.sizeDelta.x/2,
@@ -23,7 +22,6 @@ public class Progress : MonoBehaviour
     }
     void Update()
     {
-        
         pbValue = MesureManager.Instance.Distance;
         
         float x = progressImage.rectTransform.sizeDelta.x * progressImage.rectTransform.localScale.x;
@@ -39,9 +37,5 @@ public class Progress : MonoBehaviour
             PlayerIcon.rectTransform.localPosition.z);
 
         percentText.text = Math.Round(progressImage.fillAmount * 100, 1) + " %";
-
-
-
-
     }
 }

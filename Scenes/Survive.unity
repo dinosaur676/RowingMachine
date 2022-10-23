@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3002039796891958181, guid: b0d6a03f31dd0af4d894aa6c9b1f33ef, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3779066530595776274, guid: b0d6a03f31dd0af4d894aa6c9b1f33ef, type: 3}
       propertyPath: m_Name
       value: Player
@@ -182,10 +186,22 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: b0d6a03f31dd0af4d894aa6c9b1f33ef, type: 3}
 --- !u!1 &351714921 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3779066530595776274, guid: b0d6a03f31dd0af4d894aa6c9b1f33ef, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1761510728458156751, guid: b0d6a03f31dd0af4d894aa6c9b1f33ef, type: 3}
   m_PrefabInstance: {fileID: 351714920}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &351714922
+--- !u!114 &351714922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351714921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c11047ebe85d593449521234ac676420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &351714923
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,18 +217,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &351714923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351714921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c11047ebe85d593449521234ac676420, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &351714924
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -224,7 +228,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1, z: 3}
+  m_Size: {x: 2, y: 2, z: 3}
   m_Center: {x: -1, y: 0, z: 0}
 --- !u!1 &359768183
 GameObject:
@@ -627,6 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575648513}
   - component: {fileID: 1575648512}
+  - component: {fileID: 1575648514}
   m_Layer: 0
   m_Name: SharkGameManager
   m_TagString: Untagged
@@ -661,6 +666,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1575648514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575648511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1bf468e572a53409667c715665db6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1629734928
 GameObject:
   m_ObjectHideFlags: 0

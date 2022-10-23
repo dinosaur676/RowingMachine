@@ -103,7 +103,9 @@ public class BluetoothManager : MonoBehaviour
 
         while (true)
         {
-            SpeedManager.Instance.GoalBoatSpeed = TEST_SPEED;
+            if(TEST_SPEED > 0.1f)
+                SpeedManager.Instance.GoalBoatSpeed = TEST_SPEED;
+
             yield return new WaitForSeconds(0.5f);
         }
     }

@@ -43,8 +43,7 @@ public class OpenPopup : MonoBehaviour
     }
     public void closePopup()
     {
-        StartCoroutine(closePopupAnim());
-        
+        StartCoroutine(closePopupAnim());    
     }
 
     IEnumerator closePopupAnim()
@@ -62,5 +61,7 @@ public class OpenPopup : MonoBehaviour
 
         Destroy(gameObject);
 
+
+        Application.Quit();
     }
 }

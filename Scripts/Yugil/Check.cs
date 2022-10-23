@@ -9,7 +9,7 @@ public class Check : MonoBehaviour
         if (other.gameObject.tag != "Shark")
             return;
 
-        SceneController.Instance.NextScene(NameUtil.SCENE_TRAINING);
+        SceneController.Instance.NextScene(NameUtil.SCENE_MODESELECTION);
     }
 
 

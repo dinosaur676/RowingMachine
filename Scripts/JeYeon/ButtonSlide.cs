@@ -12,59 +12,85 @@ public class ButtonSlide : MonoBehaviour
     private Vector3 startPos;
     private Vector3 endPos;
     private float lerpTime = 0.5f;
-    private float currentTime = 0;
+
+    Coroutine startCoroutine = null;
+    Coroutine closeCoroutine = null;
 
     public void startSlide(int y)
     {
         transform.gameObject.SetActive(true);
         this.y = y;
-        StartCoroutine(startSlideAnim());
+
+        if (transform.gameObject.activeSelf)
+        {
+            if (closeCoroutine != null)
+                StopCoroutine(closeCoroutine);
+            startCoroutine = StartCoroutine(startSlideAnim());
+        }
     }
 
     IEnumerator startSlideAnim()
     {
-
+        float currentTime = 0.0f;
         startPos = transform.GetComponent<RectTransform>().localPosition;
         endPos = new Vector3(0, -1 * movePosition * y, 0);
         
         
         while (currentTime < lerpTime)
         {
-            currentTime += Time.deltaTime;
-            
             transform.GetComponent<RectTransform>().localPosition = Vector3.Lerp(startPos, endPos,
                 currentTime / lerpTime);
 
-            
+            currentTime += Time.deltaTime;
+
             yield return null;
         }
-        currentTime = 0;
+
+        startCoroutine = null;
     }
     
     public void closeSlide()
     {
-        StartCoroutine(closeSlideAnim());
+        if (transform.gameObject.activeSelf)
+        {
+            if (startCoroutine != null)
+                StopCoroutine(startCoroutine);
+            closeCoroutine = StartCoroutine(closeSlideAnim());
+        }
+
+
     }
     IEnumerator closeSlideAnim()
     {
+        float currentTime = 0.0f;
         startPos = transform.GetComponent<RectTransform>().localPosition;
         endPos = new Vector3(0, 0, 0);
 
 
         while (currentTime < lerpTime)
         {
-            currentTime += Time.deltaTime;
-
             transform.GetComponent<RectTransform>().localPosition = Vector3.Lerp(startPos, endPos,
                 currentTime / lerpTime);
 
-            
+            currentTime += Time.deltaTime;
+
             yield return null;
         }
-        currentTime = 0;
+
+        closeCoroutine = null;
         transform.gameObject.SetActive(false);
     }
-    
+
+    public void OnEnable()
+    {
+        transform.GetComponent<RectTransform>().localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+    }
+
+    public void OnDisable()
+    {
+        transform.GetComponent<RectTransform>().localPosition = new Vector3(0, -1 * movePosition * y, 0);
+    }
+
 
 
     /*

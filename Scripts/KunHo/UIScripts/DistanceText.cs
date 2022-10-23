@@ -19,6 +19,7 @@ public class DistanceText : MonoBehaviour
     void Update()
     {
         float time = MesureManager.Instance.Timer.Time;
+
         if (((int)time / 5) % 2 == 0)
         {
             text.text = "°Å¸® : " + (MesureManager.Instance.Distance).ToString("F3") + "km";

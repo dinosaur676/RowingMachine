@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class TimeAttackManager : MonoBehaviour
 {
     // 싱글톤 접근용 프로퍼티
+
+    [SerializeField]
+    private GameObject progressBar_Prefab;
     public static TimeAttackManager instance
     {
         get
@@ -23,6 +26,16 @@ public class TimeAttackManager : MonoBehaviour
     }
     private static TimeAttackManager m_instance; // 싱글톤이 할당될 static 변수
 
+    private float goalDistance = 0.01f;
+
+    public float GoalDistance
+    {
+        get
+        {
+            return goalDistance;
+        }
+    }
+
     private void Awake()
     {
         // 씬에 싱글톤 오브젝트가 된 다른 GameManager 오브젝트가 있다면
@@ -33,22 +46,25 @@ public class TimeAttackManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        Instantiate(progressBar_Prefab, GameObject.Find("UI").transform, false);
+    }
+
 
 
     void Update()
     {
-        if (EnemyController.instance.Distance >= 2 || 
-             MesureManager.Instance.Distance >= 2 )
+        if (EnemyController.instance.Distance >= goalDistance || 
+             MesureManager.Instance.Distance >= goalDistance )
         {
             endGame();
         }
-
     }
 
     private void endGame()
     {
-        LoadingSceneController.LoadScene("ModeSelection");
-        
+        LoadingSceneController.LoadScene("ModeSelection");  
     }
     
     

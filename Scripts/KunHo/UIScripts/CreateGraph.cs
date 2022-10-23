@@ -5,7 +5,11 @@ using UnityEngine.UI;
 
 public class CreateGraph : MonoBehaviour
 {
-
+    public enum GraphType
+    {
+        calorie,
+        distance
+    }
     int lineCount = 10;
 
     private int[] testList = { 11, 25, 71, 80, 64, 30, 37, 57, 67, 77 };
@@ -56,8 +60,11 @@ public class CreateGraph : MonoBehaviour
         return max;
     }
 
-    public void onRadio()
+    public void onRadio(Toggle toggle)
     {
+        if (!toggle.isOn)
+            return;
+
         int max = int.MinValue;
         if (content.transform.childCount > 0)
         {

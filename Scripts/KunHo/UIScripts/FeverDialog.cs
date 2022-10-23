@@ -6,42 +6,51 @@ using UnityEngine.UI;
 public class FeverDialog : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField]
     Image timeProgressbar;
-    Image distanceProgressBar;
 
-    Image progressImage;
-    Image playerIcon;
+    [SerializeField]
+    Image timeIcon;
 
-    float speed;
+    [SerializeField]
+    Text text;
+
+    [SerializeField]
+    GameObject resultWindow;
+
     float distance;
-    float currentDistance;
     float timeSec;
     TimeUtil.Timer timer;
 
     void Start()
     {
-        timeProgressbar = transform.Find("TimeProgressBar").GetComponent<Image>();
-        distanceProgressBar = transform.Find("DistanceProgressBar").GetComponent<Image>();
-
         timeSec = 5.0f; //Random.Range(300.0f, 480.0f);
-        speed = Random.Range(3.0f, 6.0f);
         timer = new TimeUtil.Timer(timeSec);
-        distance = speed / 3600 * timeSec;
-        currentDistance = 0.0f ;
+        distance = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         timeProgressbar.fillAmount = timer.Time / timeSec;
-        distanceProgressBar.fillAmount = currentDistance / distance;
 
+        distance += (float)SpeedManager.Instance.BoatSpeed * Time.deltaTime / 3600;
 
-        currentDistance += (float)SpeedManager.Instance.BoatSpeed * Time.deltaTime / 3600;
+        float remainTime = timeSec - timer.Time;
+        text.text = "남은시간 : " + remainTime.ToString("F1");
 
-        if (timer.isEnd || currentDistance >= distance)
+        float x = timeProgressbar.rectTransform.sizeDelta.x * timeProgressbar.rectTransform.localScale.x;
+        float positionX = x * timeProgressbar.fillAmount - (x / 2);
+
+        timeIcon.rectTransform.localPosition = new Vector3(positionX, timeIcon.rectTransform.localPosition.y,
+            timeIcon.rectTransform.localPosition.z);
+
+        if (timer.isEnd)
         {
-            Destroy(transform.parent.gameObject);
+            GameObject window = Instantiate(resultWindow, transform.parent, false);
+            window.GetComponent<FeverWindow>().startPopup(timeSec, distance);
+
+            Destroy(gameObject);
         }
     }
 }
