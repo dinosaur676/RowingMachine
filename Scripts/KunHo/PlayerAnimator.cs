@@ -22,10 +22,9 @@ public class PlayerAnimator : MonoBehaviour
     {
         // 물리 갱신 주기마다 움직임, 회전, 애니메이션 처리 실행
 
-        if (SpeedManager.Instance.isStop)
-            playerAnimator.SetBool("isMove", false);
-        else
-            playerAnimator.SetBool("isMove", true);
+        
+        
+        playerAnimator.SetBool("isMove", true);
     }
 
 }

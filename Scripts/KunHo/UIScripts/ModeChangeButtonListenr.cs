@@ -17,29 +17,10 @@ public class ModeChangeButtonListenr : MonoBehaviour
     {
         
     }
-
     public void OpenModeUI()
     {
-        /*
-        GameObject obj = Resources.Load<GameObject>("Prefabs/ExitUI");
-        GameObject parent = GameObject.Find("UI");
-        GameObject settingUI = Instantiate<GameObject>(obj, parent.transform, false);
-        */
-
+    
         ModeChangeUI.SetActive(true);
-
-        popupSystem popupScript = ModeChangeUI.GetComponent<popupSystem>();
-
-        popupScript.SetYesCallback(() =>
-        {
-            ModeChangeUI.GetComponent<Animator>().SetTrigger("close");
-            //ExitUI.SetActive(false);
-        });
-        popupScript.SetNoCallback(() =>
-        {
-            ModeChangeUI.GetComponent<Animator>().SetTrigger("close");
-            //ExitUI.SetActive(false);
-        });
 
     }
 }

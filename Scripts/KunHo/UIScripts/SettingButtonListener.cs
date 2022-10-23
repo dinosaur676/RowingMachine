@@ -21,7 +21,7 @@ public class SettingButtonListener : MonoBehaviour
     public void OpenSettingUI()
     {
         SettingUI.SetActive(true);
-
+        /*
         popupSystem popupScript = SettingUI.GetComponent<popupSystem>();
 
         popupScript.SetYesCallback(() =>
@@ -34,6 +34,6 @@ public class SettingButtonListener : MonoBehaviour
             SettingUI.GetComponent<Animator>().SetTrigger("close");
 
         });
-
+        */
     }
 }

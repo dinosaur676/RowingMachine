@@ -25,19 +25,8 @@ public class ExitGameButtonListener : MonoBehaviour
             SceneController.Instance.NextScene(NameUtil.SCENE_TRAINING);
         }
 
-        popupSystem popupScript = ExitUI.GetComponent<popupSystem>();
+        
 
-
-        popupScript.SetYesCallback(() =>
-        {
-            ExitUI.GetComponent<Animator>().SetTrigger("close");
-            Application.Quit();
-        });
-
-        popupScript.SetNoCallback(() =>
-        {
-            ExitUI.GetComponent<Animator>().SetTrigger("close");
-        });
 
     }
 }

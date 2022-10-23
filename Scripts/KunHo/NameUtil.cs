@@ -8,7 +8,8 @@ public class NameUtil
     {
         TRAINING,
         SURVIVE,
-        TIMEATTACK
+        TIMEATTACK,
+        MODESELECTION
     }
 
     public enum SoundName
@@ -19,6 +20,7 @@ public class NameUtil
     static public string SCENE_TRAINING = "Training";
     static public string SCENE_SURVIVE = "Survive";
     static public string SCENE_TIMEATTACK = "TimeAttack";
+    static public string SCENE_MODESELECTION = "ModeSelection";
 
     static public string SOUND_WATER_IMPACT = "WaterImpact";
     static public string SOUND_BGM = "BGM";
@@ -39,6 +41,10 @@ public class NameUtil
             case SceneName.TIMEATTACK:
                 {
                     return SCENE_TIMEATTACK;
+                }
+            case SceneName.MODESELECTION:
+                {
+                    return SCENE_MODESELECTION;
                 }
         }
 
