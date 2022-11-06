@@ -17,8 +17,10 @@ public class FeverWindow : MonoBehaviour
         distanceText = transform.GetChild(2).GetComponent<Text>();
 
         timeText.text = timeSec + "초 동안 간거리";
-        distanceText.text = (distance * 1000).ToString("F0") + "M";
+        distanceText.text =((int)(distance * 1000)).ToString("F0") + "M";
         StartCoroutine(startPopupAnim());
+        TrainGameManager.Instance.endFeverMode();
+        DBManager.Instance.insertDistance((int)timeSec, (int)(distance * 1000));
     }
     IEnumerator startPopupAnim()
     {

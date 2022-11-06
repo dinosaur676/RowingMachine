@@ -92,18 +92,18 @@ public class CreateGraph : MonoBehaviour
         }
         else if(distance.isOn)
         {
-            List<CalorieDTO> calorieDTOs = new List<CalorieDTO>();
+            List<RowingDTO> dtos = DBManager.Instance.getDistance();
 
-            for (int i = 0; i < calorieDTOs.Count; ++i)
+            for (int i = 0; i < dtos.Count; ++i)
             {
-                if (calorieDTOs[i].Calorie > max)
-                    max = calorieDTOs[i].Calorie;
+                if (dtos[i].Distance > max)
+                    max = dtos[i].Distance;
             }
 
             max = GetMax(max);
 
             showGraphValue.GetComponent<ShowGraphValue>().createValue(lineCount, 0, max / lineCount);
-            dotCreator.GetComponent<DotCreator>().createDot(calorieDTOs, max);
+            dotCreator.GetComponent<DotCreator>().createDot(dtos, max);
         }
     }
 }

@@ -77,6 +77,7 @@ public class BluetoothManager : MonoBehaviour
         while (!bluetoothHelper.isConnected())
         {
             tryConnect();
+            Debug.Log("¤µ¤²");
             yield return new WaitForSeconds(3.0f);
         }
 

@@ -48,6 +48,7 @@ public class FeverDialog : MonoBehaviour
         if (timer.isEnd)
         {
             GameObject window = Instantiate(resultWindow, transform.parent, false);
+            window.transform.SetSiblingIndex(3);
             window.GetComponent<FeverWindow>().startPopup(timeSec, distance);
 
             Destroy(gameObject);

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MuteSound : MonoBehaviour
 {
-    private AudioSource audiosource;
     private Toggle muteButton;
     public GameObject image;
 
@@ -18,16 +17,14 @@ public class MuteSound : MonoBehaviour
 
     public void muteSound()
     {
-        audiosource = SoundManager.Instance.GetComponent<AudioSource>();
+        SoundManager.Instance.mute(muteButton.isOn);
+
         if (!muteButton.isOn)
         {
-            
-            audiosource.mute = false;
             image.SetActive(false);
         }
         else
         {
-            audiosource.mute = true;
             image.SetActive(true);
         }
     }

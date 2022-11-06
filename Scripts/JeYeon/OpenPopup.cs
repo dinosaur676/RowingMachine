@@ -33,6 +33,7 @@ public class OpenPopup : MonoBehaviour
             if(type == CloseType.ApplicationClose)
                 yesbutton.GetComponent<Button>().onClick.AddListener(() =>
                 {
+                    DBManager.Instance.insertCalorie();
                     Application.Quit();
                 });
         }

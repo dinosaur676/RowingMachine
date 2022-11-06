@@ -56,7 +56,6 @@ public class DotCreator : MonoBehaviour
     }
     IEnumerator CreateDot(List<RowingDTO> rowingDTOs, int max)
     {
-        RectTransform parentRect = transform.parent.GetComponent<RectTransform>();
         float parentHeight = parentRect.rect.height;
 
         for (int i = 0; i < rowingDTOs.Count; ++i)
@@ -70,6 +69,7 @@ public class DotCreator : MonoBehaviour
 
             GameObject Date = dot.transform.Find("Date").gameObject;
             Date.GetComponent<Text>().text = rowingDTOs[i].getDate();
+            
 
             float x = (300 * i) - parentRect.rect.xMax + Date.GetComponent<RectTransform>().sizeDelta.x;
 

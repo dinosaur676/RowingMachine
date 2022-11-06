@@ -8,6 +8,12 @@ public class CalorieDTO
     int calorie;
     int time;
 
+    public CalorieDTO()
+    {
+        date = System.DateTime.Now;
+        
+    }
+
     public System.DateTime Date
     {
         get
@@ -46,6 +52,22 @@ public class CalorieDTO
 
     public string getDate()
     {
-        return date.Year + "/" + date.Month + "/" + date.Day + "\n" + date.Hour + ":" + date.Minute + ":" + date.Second;
+        return date.Year + "/" + getStr(date.Month) + "/" + getStr(date.Day);
+    }
+
+    public override string ToString()
+    {
+        string strDate = date.Year + "/" + getStr(date.Month) + "/" + getStr(date.Day) + " - " + "00:00:00";
+        return "\"" + strDate + "\", " + calorie + ", " + time;
+    }
+
+    public string getDay()
+    {
+        return date.Year + "/" + getStr(date.Month) + "/" + getStr(date.Day);
+    }
+
+    private string getStr(int value)
+    {
+        return value < 10 ? "0" + value : "" + value;
     }
 }

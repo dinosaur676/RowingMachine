@@ -10,6 +10,7 @@ public class ApplicationQuit : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(() =>
         {
+            DBManager.Instance.insertCalorie();
             Application.Quit();
         });
     }

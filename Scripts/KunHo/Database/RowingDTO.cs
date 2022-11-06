@@ -8,6 +8,10 @@ public class RowingDTO
     int distance;
     int time;
     bool isSuccess;
+    public RowingDTO()
+    {
+        date = System.DateTime.Now;
+    }
 
     public System.DateTime Date
     {
@@ -59,6 +63,17 @@ public class RowingDTO
 
     public string getDate()
     {
-        return date.Year + "/" + date.Month + "/" + date.Day + "\n" + date.Hour + ":" + date.Minute + ":" + date.Second;
+        return date.Year + "/" + getStr(date.Month) + "/" + getStr(date.Day) + "\n" + getStr(date.Hour) + ":" + getStr(date.Minute) + ":" + getStr(date.Second);
+    }
+
+    public override string ToString()
+    {
+        string strDate = date.Year + "/" + getStr(date.Month) + "/" + getStr(date.Day) + " - " + getStr(date.Hour) + ":" + getStr(date.Minute) + ":" + getStr(date.Second);
+        return "\"" + strDate + "\", " + time + ", " + distance + ", " + "1";
+    }
+
+    private string getStr(int value)
+    {
+        return value < 10 ? "0" + value : "" + value;
     }
 }

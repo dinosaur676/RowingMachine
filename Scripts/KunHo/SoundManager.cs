@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
     private float soundEffectVolume;
 
+    private float prevSEV, prevBGM;
+
 
     static public SoundManager Instance
     {
@@ -45,6 +47,23 @@ public class SoundManager : MonoBehaviour
         get
         {
             return audioSource.volume;
+        }
+    }
+
+    public void mute(bool isOn)
+    {
+        if(isOn)
+        {
+            prevSEV = soundEffectVolume;
+            prevBGM = audioSource.volume;
+
+            soundEffectVolume = 0.0f;
+            audioSource.volume = 0.0f;
+        }
+        else
+        {
+            soundEffectVolume = prevSEV;
+            audioSource.volume = prevBGM;
         }
     }
 
@@ -78,6 +97,8 @@ public class SoundManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         soundEffectVolume = 0.5f;
+        prevSEV = 0.5f;
+        prevBGM = 0.5f;
     }
 
     
