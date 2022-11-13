@@ -24,7 +24,7 @@ public class FeverDialog : MonoBehaviour
 
     void Start()
     {
-        timeSec = 5.0f; //Random.Range(300.0f, 480.0f);
+        timeSec = 360.0f;
         timer = new TimeUtil.Timer(timeSec);
         distance = 0.0f;
     }

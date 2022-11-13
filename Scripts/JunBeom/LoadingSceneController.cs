@@ -50,7 +50,7 @@ public class LoadingSceneController : MonoBehaviour
                     timer = 0f;
                 }
             }
-            else if(!_isWait && op.progress > 0.9f)
+            else if(!_isWait)
             {
                 progressBar.fillAmount = Mathf.Lerp(progressBar.fillAmount, 1f, timer);
                 if (progressBar.fillAmount >= 1.0f)

@@ -32,7 +32,7 @@ public class TrainGameManager : MonoBehaviour
 
     void Start()
     {
-        timer = new TimeUtil.Timer(Random.Range(5.0f, 5.1f));
+        timer = new TimeUtil.Timer(Random.Range(480.0f, 600.0f));
         feverMode = false;
 
         SoundManager.Instance.setBackGroundMusic(BGMList.Instance.getAudioClip(NameUtil.SOUND_BGM));
@@ -53,7 +53,7 @@ public class TrainGameManager : MonoBehaviour
 
     public void endFeverMode()
     {
-        timer = new TimeUtil.Timer(Random.Range(5.0f, 5.1f));
+        timer = new TimeUtil.Timer(Random.Range(480.0f, 600.0f));
 
         feverMode = false;
     }

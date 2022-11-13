@@ -20,6 +20,7 @@ public class BluetoothManager : MonoBehaviour
 
     void Start()
     {
+        Application.targetFrameRate = 60;
         if (!TEST_MODE)
         {
             deviceName = "kunBT";
@@ -41,9 +42,6 @@ public class BluetoothManager : MonoBehaviour
 
     void Update()
     {
-        if (TEST_MODE)
-            return;
-
         if (bluetoothHelper.isConnected())
         {
             recv_msg = bluetoothHelper.Read();
@@ -76,8 +74,7 @@ public class BluetoothManager : MonoBehaviour
 
         while (!bluetoothHelper.isConnected())
         {
-            tryConnect();
-            Debug.Log("¤µ¤²");
+            tryConnect(); 
             yield return new WaitForSeconds(3.0f);
         }
 
